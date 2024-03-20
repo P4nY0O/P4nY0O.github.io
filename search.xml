@@ -5,8 +5,8 @@
     
     <entry>
       <title>first blog</title>
-      <link href="/project/2024/03/20/hello-world/"/>
-      <url>/project/2024/03/20/hello-world/</url>
+      <link href="/2024/03/20/hello-world/"/>
+      <url>/2024/03/20/hello-world/</url>
       
         <content type="html"><![CDATA[<p>#第一篇博客#</p><p>稍微记录一下，最开始本来没有搭建个人博客的想法的，以前不太清楚个人博客的定位是什么，因为如果不是大牛的话好像也没什么人看。但是上周几场比赛把自己打自闭了之后还是深刻地认识到了自己与大佬之间的差距，又燃起了许多学习的欲望。上学期的学习进度总是不太持续，一段时间猛猛学又一段毫无斗志，这次也是希望借由博客来帮助自己持续:<em>输入–&gt;输出</em> 这个过程吧，后面就把一些学习笔记记录上来，或许也会继续更一些生活学习的碎碎念哈哈哈</p><p>Anyway搭博客的过程虽然有点折腾，但是比起配CTF各种奇奇怪怪的脚本，工具的环境来说还是很简易了哈哈，基于githubpage的搭建也让我一个脚本纯靠CV大法的人学到一些github仓库的上传，管理操作.</p><p>过段时间比较有空了再慢慢捣鼓完善下网站的功能，这周的时间真的被榨干了，一堆作业和周末的内部赛和web分享会</p><p>感谢搭建过程给予帮助的学长！</p><p>3500：<a href="https://huanxin-chen.github.io/">3500</a></p><p>顺虞：<a href="https://liu1272.github.io/about/">Robin</a> </p>]]></content>
       
