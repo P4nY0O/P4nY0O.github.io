@@ -195,7 +195,7 @@ PVM 由三部分组成：</p>
 <p>pickle序列化后的数据是opcode,它相对其他语言所用的json格式而言易读性稍差,但是能够储存更多的python数据结构,随着python的更新迭代,opcode也有几个版本</p>
 <h1>OPCODE</h1>
 <p>v0 版协议是原始的 “人类可读” 协议，并且向后兼容早期版本的 Python</p>
-<p><img src="%5Cpic%5Copcode.png" alt="opcode"><br>
+<p><img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Copcode.png" alt="opcode"><br>
 常用操作码:</p>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -480,14 +480,14 @@ pan\27104</p>
 <h2 id="pickle的常用攻击方式">pickle的常用攻击方式</h2>
 <ol>
 <li class="lvl-3">
-<p>反弹shell</p>
+<p>变量覆盖</p>
 </li>
 <li class="lvl-3">
-<p>RCE(fantanshell)</p>
+<p>RCE(反弹shell)</p>
 </li>
 </ol>
 <p>这里我们暂时只用一道# [watevrCTF-2019]Pickle Store来举例展示</p>
-<p><img src="%5Cpic%5Cpickle_shop.png" alt="pickle_shop"><br>
+<p><img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Cpickle_shop.png" alt="pickle_shop"><br>
 题目进去是一个商店界面,初始有500刀,得到flag需要购买1000刀的Flag Pickle<br>
 然后购买上面两个商品发现每次购买后COOKIE的session都会改变,base64解码后可以发现是用pickle序列化后的数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle  </span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *  </span><br><span class="line">  </span><br><span class="line">enc = <span class="string">&quot;gAN9cQAoWAUAAABtb25leXEBTXwBWAcAAABoaXN0b3J5cQJdcQMoWBQAAABZdW1teSBzbcO2cmfDpXNndXJrYXEEWBUAAABZdW1teSBzdGFuZGFyZCBwaWNrbGVxBVgVAAAAWXVtbXkgc3RhbmRhcmQgcGlja2xlcQZlWBAAAABhbnRpX3RhbXBlcl9obWFjcQdYIAAAADgwNzUzODY5ZmEzODNlOGFjNWQ2YWJhM2FiYWU3ZGMzcQh1Lg==&quot;</span>  </span><br><span class="line"><span class="built_in">print</span>(b64decode(enc))</span><br><span class="line"><span class="comment">#输出b&#x27;\x80\x03&#125;q\x00(X\x05\x00\x00\x00moneyq\x01M|\x01X\x07\x00\x00\x00historyq\x02]q\x03(X\x14\x00\x00\x00Yummy sm\xc3\xb6rg\xc3\xa5sgurkaq\x04X\x15\x00\x00\x00Yummy standard pickleq\x05X\x15\x00\x00\x00Yummy standard pickleq\x06eX\x10\x00\x00\x00anti_tamper_hmacq\x07X \x00\x00\x0080753869fa383e8ac5d6aba3abae7dc3q\x08u.&#x27;</span></span><br></pre></td></tr></table></figure>
