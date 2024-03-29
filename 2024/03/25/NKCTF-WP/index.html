@@ -166,9 +166,13 @@
 <p>这题主要利用的漏洞是压缩包slip</p>
 <p>Zip Slip是一个广泛存在的漏洞，除了Java语言，JavaScript，Ruby，.NET和Go都有此问题。</p>
 <p>利用此漏洞有两个前提：</p>
-<ul>
-<li>有恶意的压缩文件（这一点我们可以自己构造）</li>
-<li>提取代码不会执行目录检查。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>有恶意的压缩文件（这一点我们可以自己构造）</p>
+</li>
+<li class="lvl-2">
+<p>提取代码不会执行目录检查。</p>
+</li>
 </ul>
 <p>恶意的压缩文件一般包含<code>../</code>目录，从而解压时会跳出当前目录。</p>
 <p>提取代码一般会得到压缩文件中的文件目录，如果不对这些目录进行校验则会出现slip问题</p>
@@ -207,13 +211,13 @@
 <blockquote>
 <p>This function has two weaknesses:</p>
 </blockquote>
-<ul>
-<li>
+<ul class="lvl-0">
+<li class="lvl-2">
 <blockquote>
 <p>It does not set a trusted base-path which should not be escaped, therefore <code>os.path.join(&quot;/opt/safe/&quot;, &quot;../../etc/passwd&quot;)</code> returns <code>/etc/passwd</code>.</p>
 </blockquote>
 </li>
-<li>
+<li class="lvl-2">
 <blockquote>
 <p>It uses the right-most absolute path in its arguments as the root path, therefore <code>os.path.join(&quot;./safe/&quot;, &quot;do_not_escape_from_here&quot;, &quot;/etc/passwd&quot;)</code> returns <code>/etc/passwd</code>.</p>
 </blockquote>
@@ -252,7 +256,8 @@
 
     
     
-    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
+    <a href="/2024/03/26/nkwp/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
