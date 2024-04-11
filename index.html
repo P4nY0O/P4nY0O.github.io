@@ -157,16 +157,16 @@
 <hr>
 <p>启动好靶机之后先查看一下kali的ip<br>
 <code>ip a</code><br>
-<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Cb501152dca57d9d2aea45ef50d8d980.png" alt="b501152dca57d9d2aea45ef50d8d980"></p>
+<img src="%5Cpic%5Cb501152dca57d9d2aea45ef50d8d980.png" alt="b501152dca57d9d2aea45ef50d8d980"></p>
 <p>然后因为靶机和kali是在同一个C段的直接nmap扫一下子网<code>nmap -sn 192.168.136.0/24</code><br>
 除了kali的130多出了一个133,应该就是靶机了<br>
-<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Ce4b436ed9b614ca335301cedebcc51b.png" alt="e4b436ed9b614ca335301cedebcc51b"></p>
+<img src="%5Cpic%5Ce4b436ed9b614ca335301cedebcc51b.png" alt="e4b436ed9b614ca335301cedebcc51b"></p>
 <p>端口发现<code>nmap -A 192.168.136.133</code><br>
-<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C79f0748d6f4484ae3dc0184ca740b53.png" alt="79f0748d6f4484ae3dc0184ca740b53"><br>
-图形工具也可以,就是不太优雅<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C6cfd4f1cb481b234808175f07a15b32.png" alt="6cfd4f1cb481b234808175f07a15b32"></p>
+<img src="%5Cpic%5C79f0748d6f4484ae3dc0184ca740b53.png" alt="79f0748d6f4484ae3dc0184ca740b53"><br>
+图形工具也可以,就是不太优雅<img src="%5Cpic%5C6cfd4f1cb481b234808175f07a15b32.png" alt="6cfd4f1cb481b234808175f07a15b32"></p>
 <p>扫出来两个端口,一个22的是SSH服务的,因为还没拿到账号密码所以暂时先放着<br>
 80端口运行一个Apache的web服务,直接web端访问一下(命令行直接curl也行)<br>
-<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Cbe2265491907be04b559ddd07658827.png" alt="be2265491907be04b559ddd07658827"><br>
+<img src="%5Cpic%5Cbe2265491907be04b559ddd07658827.png" alt="be2265491907be04b559ddd07658827"><br>
 可以看到是要本地访问,源码提示了x-forwarded-for<br>
 暂时先放着,继续信息收集</p>
 <p><code>sudo nmap --script=vuln -p22,80 192.168.28.51 -oA nmapscan/vuln</code><br>
@@ -886,11 +886,11 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
+			<li><a href="/tags/WP/">WP<span>1</span></a></li>
+		
 			<li><a href="/tags/pickle/">pickle<span>1</span></a></li>
 		
 			<li><a href="/tags/打靶/">打靶<span>1</span></a></li>
-		
-			<li><a href="/tags/WP/">WP<span>1</span></a></li>
 		
 			<li><a href="/tags/碎碎念/">碎碎念<span>1</span></a></li>
 		
