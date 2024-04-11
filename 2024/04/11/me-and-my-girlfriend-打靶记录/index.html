@@ -152,7 +152,7 @@
 这个命令可以让nmap使用指定脚本(vuln)在扫描端口的同时检测漏洞,这次没有扫出什么.但是以后可以作为信息收集的一步,如果可以在信息收集时就找到漏洞就最好了</p>
 <h3 id="目录爆破">目录爆破</h3>
 <p><code>sudo gobuster dir -u http://192.168.136.133 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt</code><br>
-![Pasted image 20240410233523](<a target="_blank" rel="noopener" href="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/Pasted">https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/Pasted</a> image 20240410233523.png?raw=true)</p>
+<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/3523.png?raw=true" alt="Pasted image 20240410233523"></p>
 <p><code>sudo gobuster dir -u http://192.168.136.133 -x txt,sql,rar,zip,tar -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt</code><br>
 在爆破目录的同时重点查找-x指定的扩展名<br>
 <img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/31e3e7849fab0ee175aca2661239d8a.png?raw=true" alt="Pasted image 20240410234004"><br>
