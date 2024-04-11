@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>me_and_my_girlfriend-打靶记录 | P4nY0O</title>
+  <meta name="author" content="P4nY0O">
+  
+  <meta name="description" content="hack it">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="me_and_my_girlfriend-打靶记录"/>
+  <meta property="og:site_name" content="P4nY0O"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="P4nY0O" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/prism.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70812759-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70812759-1');
+</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">P4nY0O</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> me_and_my_girlfriend-打靶记录</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h5 id="手工爆库、php提权">手工爆库、php提权</h5>
+<hr>
+<p>启动好靶机之后先查看一下kali的ip<br>
+<code>ip a</code><br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Cb501152dca57d9d2aea45ef50d8d980.png" alt="b501152dca57d9d2aea45ef50d8d980"></p>
+<p>然后因为靶机和kali是在同一个C段的直接nmap扫一下子网<code>nmap -sn 192.168.136.0/24</code><br>
+除了kali的130多出了一个133,应该就是靶机了<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Ce4b436ed9b614ca335301cedebcc51b.png" alt="e4b436ed9b614ca335301cedebcc51b"></p>
+<p>端口发现<code>nmap -A 192.168.136.133</code><br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C79f0748d6f4484ae3dc0184ca740b53.png" alt="79f0748d6f4484ae3dc0184ca740b53"><br>
+图形工具也可以,就是不太优雅<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C6cfd4f1cb481b234808175f07a15b32.png" alt="6cfd4f1cb481b234808175f07a15b32"></p>
+<p>扫出来两个端口,一个22的是SSH服务的,因为还没拿到账号密码所以暂时先放着<br>
+80端口运行一个Apache的web服务,直接web端访问一下(命令行直接curl也行)<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Cbe2265491907be04b559ddd07658827.png" alt="be2265491907be04b559ddd07658827"><br>
+可以看到是要本地访问,源码提示了x-forwarded-for<br>
+暂时先放着,继续信息收集</p>
+<p><code>sudo nmap --script=vuln -p22,80 192.168.28.51 -oA nmapscan/vuln</code><br>
+这个命令可以让nmap使用指定脚本(vuln)在扫描端口的同时检测漏洞,这次没有扫出什么.但是以后可以作为信息收集的一步,如果可以在信息收集时就找到漏洞就最好了</p>
+<h3 id="目录爆破">目录爆破</h3>
+<p><code>sudo gobuster dir -u http://192.168.136.133 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt</code><br>
+![Pasted image 20240410233523](D:\CLOUD\P4nY0O.github.io\source\pic\Pasted image 20240410233523.png)</p>
+<p><code>sudo gobuster dir -u http://192.168.136.133 -x txt,sql,rar,zip,tar -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt</code><br>
+在爆破目录的同时重点查找-x指定的扩展名<br>
+![Pasted image 20240410234004](D:\CLOUD\P4nY0O.github.io\source\pic\Pasted image 20240410234004.png)<br>
+/misc应该是默认的一些配置页面<br>
+/config页面下有一个config.php,但是无法访问那么信息收集差不多就结束了,下面尝试本地访问</p>
+<p>在BP中的匹配与替换规则中新增一个x-forwarded-for:localhost规则,这个不用每次都要抓包手动加http头<br>
+![2434cae61fc0635a635ba4e15ef5f75 2](D:\CLOUD\P4nY0O.github.io\source\pic\2434cae61fc0635a635ba4e15ef5f75 2.png)</p>
+<p>成功访问后可以看到除了登录系统,注册系统外并无其他功能注册一个看看<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C094eaa8faa3a2b4d60451afc19f95be.png" alt="094eaa8faa3a2b4d60451afc19f95be"></p>
+<p>ok了登录之后再profile这里发现到url中的user_id,学过sql注入的可以猜到,数据库的查询操作应该是直接使用get方法在url传递的. 这是网站一个很危险的处理方法<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C13d5dd722b04b6b4813eff707f1dbf8.png" alt="13d5dd722b04b6b4813eff707f1dbf8"></p>
+<p>果然啊,直接改user_id就可以查看到其他用户的账号名密码则是在源码中直接看到明文了<br>
+![Pasted image 20240411002235](D:\CLOUD\P4nY0O.github.io\source\pic\Pasted image 20240411002235.png)</p>
+<p>这里由于用户不多 可以直接将账号密码尝试连接前面发现的22端口的SSH服务,手工枚举几次<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Ce39f7ff9a510b8d51a41005cc677edb.png" alt="e39f7ff9a510b8d51a41005cc677edb"></p>
+<p>在试到第五个账号alice时,可以看到已经链接成功了<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5Ce39f7ff9a510b8d51a41005cc677edb.png" alt="e39f7ff9a510b8d51a41005cc677edb"></p>
+<p>到处看看<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C6726e7e7ea4610059f692a83f68e2ed.png" alt="6726e7e7ea4610059f692a83f68e2ed"></p>
+<p>使用ls -liah可以列出隐藏文件<br>
+<img src="D:%5CObisidian%5CP4nY0O%5Cpictures%5C2563f53d88975ad52077b7744c90499.png" alt="2563f53d88975ad52077b7744c90499"></p>
+<p>可疑的.my_secret</p>
+<p><img src="D:%5CObisidian%5CP4nY0O%5Cpictures%5C9a84df951023a27e54101ca1ab4bfaa.png" alt="9a84df951023a27e54101ca1ab4bfaa"></p>
+<p>flag1拿下<br>
+shell里面没有clear命令,为了页面简洁完善环境变量<br>
+`export TERM=xterm-color</p>
+<p>然后访问/var/www/html<br>
+可以查看到我们之前在web端的config页面有目录但无法访问的的config.php<br>
+首先看看可用的系统命令,可以看到是有php的<br>
+<code>sudo -l</code><br>
+![Pasted image 20240411005927](D:\CLOUD\P4nY0O.github.io\source\pic\Pasted image 20240411005927.png)</p>
+<p>下面就是提权各种提权方式可在<a target="_blank" rel="noopener" href="https://gtfobins.github.io/%E6%9F%A5%E8%AF%A2">https://gtfobins.github.io/查询</a></p>
+<p>那么就有很多提权方式了,反弹shell也可以这里用的是最简单的由php直接调用系统命令新建一个/bin/bash会话(system,exec,passthru)都可以<br>
+<img src="D:%5CCLOUD%5CP4nY0O.github.io%5Csource%5Cpic%5C9de046ff4997afec9f1d45b16ed48fe.png" alt="flag2"></p>
+<pre><code>在PHP中，`-r` 参数是用于在命令行模式下执行一段PHP代码，而不是运行一个PHP脚本文件。这个参数允许用户直接在命令行中输入PHP代码，并立即执行，得到结果，这对于快速测试代码片段或者进行交互式编程非常有用
+</code></pre>
+<p>拿到flag2,结束</p>
+
+	  <div class="article-footer-copyright">
+
+    本博客采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议(CC BY-NC-SA 4.0) 发布.</a>
+</div>
+
+	</div>
+
+	
+	<span id="/2024/04/11/me-and-my-girlfriend-%E6%89%93%E9%9D%B6%E8%AE%B0%E5%BD%95/" class="leancloud-visitors view" data-flag-title="me_and_my_girlfriend-打靶记录">
+		<em class="post-meta-item-text"> Page View </em> <i class="leancloud-visitors-count"></i>
+	</span>
+	
+	
+	<div>
+  	<center>
+
+	<div class="pagination">
+
+    
+    
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2024/03/29/pickle/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	<!--
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+-->
+	
+		<section id="comments" class="comments">
+			<style>
+			.comments{margin:30px;padding:10px;background:rgb(0, 0, 0)}
+			@media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#000}}
+			</style>
+			<div id="vcomment" class="comment"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var valineConfig = {"enable":true,"appId":"cpZORvFIFYBpXIpB2keghfF5-gzGzoHsz","appKey":"AaIROzg1ne0ieJFAT5xbC9WY","placeholder":"","visitor":true,"avatar":"monsterid","requiredFields":["nick","mail"],"pageView":"ture"}
+valineConfig.el='#vcomment';
+new Valine(valineConfig);
+    // new Valine({
+    //     el: '#vcomment',
+    //     appId: "",
+    //     appKey: "",
+    //     placeholder: "",
+    //     avatar:"monsterid",
+    //     visitor: "true",
+    //     requiredFields: "nick,mail".split(','),
+    // });
+</script>
+
+		</section>
+	
+	
+	
+	</div> <!-- col-md-9/col-md-12 -->
+
+
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2024-04-11 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+		
+
+	</div>
+	
+		
+
+</div><!-- row -->
+
+<!--
+ -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  
+  &copy; 2024 P4nY0O's Blog
+  
+      powered by <a href="http://hexo.io/" target="_blank">Hexo</a>.Theme <a href="https://github.com/Ares-X/hexo-theme-freemind.bithack" target="_blank">freemind.bithack</a>  
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
