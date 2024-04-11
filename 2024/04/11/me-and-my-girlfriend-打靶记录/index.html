@@ -165,7 +165,7 @@
 <p>ok了登录之后再profile这里发现到url中的user_id,学过sql注入的可以猜到,数据库的查询操作应该是直接使用get方法在url传递的. 这是网站一个很危险的处理方法<br>
 <img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/13d5dd722b04b6b4813eff707f1dbf8.png?raw=true" alt="13d5dd722b04b6b4813eff707f1dbf8"></p>
 <p>果然啊,直接改user_id就可以查看到其他用户的账号名密码则是在源码中直接看到明文了<br>
-![Pasted image 20240411002235](<a target="_blank" rel="noopener" href="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/Pasted">https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/Pasted</a> image 20240411002235.png?raw=true)</p>
+<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/2235.png?raw=true" alt="Pasted image 20240411002235"></p>
 <p>这里由于用户不多 可以直接将账号密码尝试连接前面发现的22端口的SSH服务,手工枚举几次<br>
 <img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/e39f7ff9a510b8d51a41005cc677edb.png?raw=true" alt="e39f7ff9a510b8d51a41005cc677edb"></p>
 <p>在试到第五个账号alice时,可以看到已经链接成功了<br>
@@ -183,7 +183,7 @@ shell里面没有clear命令,为了页面简洁完善环境变量<br>
 可以查看到我们之前在web端的config页面有目录但无法访问的的config.php<br>
 首先看看可用的系统命令,可以看到是有php的<br>
 <code>sudo -l</code><br>
-![[sudo -l]](<a target="_blank" rel="noopener" href="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/Pasted">https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/Pasted</a> image 20240411005927.png?raw=true)</p>
+<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/sudo-l.png?raw=true" alt="sudo-l"></p>
 <p>下面就是提权各种提权方式可在<a target="_blank" rel="noopener" href="https://gtfobins.github.io/%E6%9F%A5%E8%AF%A2">https://gtfobins.github.io/查询</a></p>
 <p>那么就有很多提权方式了,反弹shell也可以这里用的是最简单的由php直接调用系统命令新建一个/bin/bash会话(system,exec,passthru)都可以<br>
 <img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/9de046ff4997afec9f1d45b16ed48fe.png?raw=true" alt="flag2"></p>
