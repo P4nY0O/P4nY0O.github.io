@@ -180,8 +180,7 @@ ok ,果然</p>
 <p>用notepad++查找攻击者的ip,然后提取有关键词的全部行,这也是我这次学到的一个操作,具体可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/eylanpp/article/details/123554322">NOTEPAD++提取含关键字的全部行</a>这样就大大减轻了审计工作将提取出的流量保存在新的一个文件中<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/POST.png?raw=true" alt="[POST.png]">搜索post,前面几个都看不出什么问题,第六个就是很明显的是XSS了直接提交</p>
 <h1><font color="#00b0f0">0x04</font>请找到黑客留下的后门中黑客服务器的ip及端口</h1>
 <p>查看了一下上传的木马里面并没有黑客服务器的ip信息<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/%E5%BA%94%E6%80%A55.png?raw=true" alt="[应急5.png]"><br>
-继续分析流量日志中找不到免杀马的落地记录，应该是流量经过编码了，分析一下流量<br>
-![[流量.png]]继续看post请求,后面开始有大量的连续流量,随便url转码一个<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/%E5%BA%94%E6%80%A56.png?raw=true" alt="[应急6.png]"><br>
+继续分析流量日志中找不到免杀马的落地记录，应该是流量经过编码了，分析一下流量<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/%E6%B5%81%E9%87%8F.png?raw=true" alt="[流量.png]">继续看post请求,后面开始有大量的连续流量,随便url转码一个<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/%E5%BA%94%E6%80%A56.png?raw=true" alt="[应急6.png]"><br>
 为了方便阅读可以把&quot;;'都替换为&quot;;\r\n&quot;这样可以换行,清晰很多可以看到执行命令的语句,以及最后有每个包的传参拿着参数名字再搜索一下<img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/%E5%BA%94%E6%80%A57.png?raw=true" alt="[应急7.png]"><br>
 然后可以按照规则base64解码,这里我一开始拿着参数值转码怎么都是乱码,后来仔细分析发现原来忽略了substr的截取,substr(“xxxx”,2)是从第3个字符开始的,去掉前两个字符之后再转就好了<br>
 <img src="https://github.com/P4nY0O/P4nY0O.github.io/blob/main/pic/%E5%BA%94%E6%80%A58.png?raw=true" alt="[应急8.png]"><br>
@@ -1024,9 +1023,9 @@ base64编码后，抓下购买flag的包，修改其中的cookie发送</p>
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/WP/">WP<span>1</span></a></li>
-		
 			<li><a href="/tags/pickle/">pickle<span>1</span></a></li>
+		
+			<li><a href="/tags/WP/">WP<span>1</span></a></li>
 		
 			<li><a href="/tags/碎碎念/">碎碎念<span>1</span></a></li>
 		
